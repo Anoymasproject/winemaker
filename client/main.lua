@@ -212,7 +212,7 @@ RegisterNetEvent('winemaker:pressing', function()
                             },
                         }) then TSE('winemaker:redgrape') end
                     else
-                        lib.notify({type = 'error', description = 'Vous avez besoin d\'au moins 30 raisins rouges.'})
+                        lib.notify({type = 'error', description = 'You need at least 30 red grapes.'})
                     end
                 end
             },
@@ -238,7 +238,7 @@ RegisterNetEvent('winemaker:pressing', function()
                             },
                         }) then TSE('winemaker:whitegrape') end
                     else
-                        lib.notify({type = 'error', description = 'Vous avez besoin d\'au moins 30 raisins blancs.'})
+                        lib.notify({type = 'error', description = 'You need at least 30 white grapes.'})
                     end
                 end
             },
@@ -264,7 +264,7 @@ RegisterNetEvent('winemaker:pressing', function()
                             },
                         }) then TSE('winemaker:pinkgrape') end
                     else
-                        lib.notify({type = 'error', description = 'Vous avez besoin d\'au moins 30 raisins blancs.'})
+                        lib.notify({type = 'error', description = 'You need at least 30 white grapes.'})
                     end
                 end
             },
@@ -301,7 +301,7 @@ RegisterNetEvent('winemaker:filling', function()
                             },
                         }) then TSE('winemaker:fillredgrape') end
                     else
-                        lib.notify({type = 'error', description = 'Vous ne disposez pas de tous les éléments nécessaires pour faire la préparation.'})
+                        lib.notify({type = 'error', description = 'You do not have all the necessary elements to prepare.'})
                     end
                 end
             },
@@ -327,7 +327,7 @@ RegisterNetEvent('winemaker:filling', function()
                             },
                         }) then TSE('winemaker:fillwhitegrape') end
                     else
-                        lib.notify({type = 'error', description = 'Vous ne disposez pas de tous les éléments nécessaires pour faire la préparation.'})
+                        lib.notify({type = 'error', description = 'You do not have all the necessary elements to prepare.'})
                     end
                 end
             },
@@ -353,7 +353,7 @@ RegisterNetEvent('winemaker:filling', function()
                             },
                         }) then TSE('winemaker:winemaker:fillpinkgrape') end
                     else
-                        lib.notify({type = 'error', description = 'Vous ne disposez pas de tous les éléments nécessaires pour faire la préparation.'})
+                        lib.notify({type = 'error', description = 'You do not have all the necessary elements to prepare.'})
                     end
                 end
             },
@@ -375,7 +375,7 @@ RegisterNetEvent('winemaker:sale', function()
                 onSelect = function()
                     local max = exports.ox_inventory:Search('count', Config.redwinebottle)
                     local quantity = lib.inputDialog('Quantiter', {
-                        {type = 'number', label = 'combien?', description = 'vous avez actuellement '..max..' bouteilles de vin rouge', icon = 'hashtag',min = 1,max = max},
+                        {type = 'number', label = 'How much?', description = 'you currently have '..max..' bottles of red wine', icon = 'hashtag',min = 1,max = max},
                       })
                       if quantity[1] then
                         if lib.progressBar({
@@ -405,7 +405,7 @@ RegisterNetEvent('winemaker:sale', function()
                 onSelect = function()
                     local max = exports.ox_inventory:Search('count', Config.whitewinebottle)
                     local quantity = lib.inputDialog('Quantiter', {
-                        {type = 'number', label = 'combien?', description = 'vous avez actuellement '..max..' bouteilles de vin blanc', icon = 'hashtag',min = 1,max = max},
+                        {type = 'number', label = 'How much?', description = 'you currently have '..max..' bottles of white wine', icon = 'hashtag',min = 1,max = max},
                       })
                       if quantity[1] then
                         if lib.progressBar({
@@ -435,7 +435,7 @@ RegisterNetEvent('winemaker:sale', function()
                 onSelect = function()
                     local max = exports.ox_inventory:Search('count', Config.pinkwinebottle)
                     local quantity = lib.inputDialog('Quantiter', {
-                        {type = 'number', label = 'combien?', description = 'vous avez actuellement '..max..' bouteilles de vin roser', icon = 'hashtag',min = 1,max = max},
+                        {type = 'number', label = 'How much?', description = 'you currently have '..max..' rose wine bottles', icon = 'hashtag',min = 1,max = max},
                       })
                       if quantity[1] then
                         if lib.progressBar({
@@ -464,12 +464,12 @@ RegisterNetEvent('winemaker:sale', function()
                 description = TranslateCap('get_empty_bootle_need'),
                 onSelect = function()
                     local quantity = lib.inputDialog('Quantiter', {
-                        {type = 'number', label = 'combien?', icon = 'hashtag', min = 1},
+                        {type = 'number', label = 'How much?', icon = 'hashtag', min = 1},
                       })
                       if quantity[1] then
                         if lib.progressBar({
                             duration = 10000,
-                            label = 'Vous recevrez les bouteilles.',
+                            label = 'You will receive the bottles.',
                             useWhileDead = false,
                             canCancel = true,
                             anim = {
@@ -493,12 +493,12 @@ RegisterNetEvent('winemaker:sale', function()
                 description = TranslateCap('get_empty_can_need'),
                 onSelect = function()
                     local quantity = lib.inputDialog('Quantiter', {
-                        {type = 'number', label = 'combien?', icon = 'hashtag', min = 1},
+                        {type = 'number', label = 'How much?', icon = 'hashtag', min = 1},
                       })
                       if quantity[1] then
                         if lib.progressBar({
                             duration = 10000,
-                            label = 'Vous recevrez les carafes.',
+                            label = 'You will receive the carafes.',
                             useWhileDead = false,
                             canCancel = true,
                             anim = {

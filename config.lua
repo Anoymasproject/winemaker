@@ -2,26 +2,26 @@ Config = {}
 
 Config.Job = "winemaker" 
 
-Config.Locale = "fr"
+Config.Locale = "en"
 
-Config.webhooks = 'https://discord.com/api/webhooks/1065340918254809230/4NdMGQbJ8_MO1jvNswECTIy1yH6owQqrf2ryRu9GdARrBd3dpUgYCvQqxW8n17KbBxy2'
+Config.webhooks = ''
 
 Config.Blips = {
     Harvest = {
       Pos     = {x = -1886.0090, y = 2221.3091, z = 90.4437},
-	  BlipName = "récolte",	
+	  BlipName = "Harvest",	
     },
 	Pressing = {
-		Pos     = {x = -1931.8933, y =2055.3696, z = 140.7537},
-		BlipName = "Pressage",	
+		Pos     = {x = -1931.8933, y =2055.3696, z = 140.7537}, 
+		BlipName = "Pressing",	
 	},
 	Bottle = {
 	    Pos     = {x = -1864.0856, y = 2066.1736, z = 141.0006},
-	    BlipName = "Remplissage",
+	    BlipName = "Filling",
 	},
     Selling = {
         Pos     = {x = -1220.68, y = -910.77, z = 12.07},
-        BlipName = "Vente",
+        BlipName = "Sale",
     }
 }
 
@@ -35,21 +35,16 @@ Config.Collectedzone = {
 }
 
 Config.Pressingzone = {
-    vec3(-1932.8898, 2055.5222, 140.8128),
-    vec3(-1933.3802, 2052.7515, 140.8128),
-    vec3(-1932.1511, 2058.2229, 140.8128)
+    vec3(-1928.7947, 2059.8057, 140.8171),
 }
 
 Config.Fillingzone = {
-    vec3(-1868.5596, 2055.9106, 141.2026),
-    vec3(-1868.7825, 2058.7241, 141.2026)
+    vec3(-1893.5272, 2075.5396, 141.0082),
 }
 
 Config.Salezone = {
-    vec3(-1880.9333, 2070.0037, 141.0059)
+    vec3(-1887.8220, 2050.9001, 140.9968)
 }
-
-Config.PedGarage = "a_m_m_farmer_01"
 
 -- items
 Config.redgrapes = "red_grapes"
