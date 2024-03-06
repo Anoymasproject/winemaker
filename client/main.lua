@@ -64,7 +64,7 @@ CreateThread(function()
                     name = 'filling',
                     event = "winemaker:filling",
                     icon = "fa-sharp fa-solid fa-wine-bottle",
-                    label = TranslateCap('filling_bottle'),
+                    label = TranslateCap('filling_bottles'),
                     distance = 2,
                     groups = Config.Job,
                     canInteract = function(entity)
@@ -77,7 +77,7 @@ CreateThread(function()
                     name = 'sale',
                     event = "winemaker:sale",
                     icon = "fa-sharp fa-solid fa-wine-bottle",
-                    label = TranslateCap('talk_to_barry'),
+                    label = TranslateCap('sale_of_wine'),
                     distance = 2,
                     groups = Config.Job,
                 }
