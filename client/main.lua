@@ -276,8 +276,8 @@ end)
 
 RegisterNetEvent('winemaker:filling', function()
     lib.registerContext({
-        id = 'plnenie_flias',
-        title = TranslateCap('plnenie_flias'),
+        id = 'filling_bottles',
+        title = TranslateCap('filling_bottles'),
         options = {
             {
                 title = TranslateCap('red_wine'),
@@ -299,7 +299,7 @@ RegisterNetEvent('winemaker:filling', function()
                                 dict = 'creatures@rottweiler@tricks@',
                                 clip = 'petting_franklin' 
                             },
-                        }) then TSE('winemaker:fillredgrape') end
+                        }) then TSE('winemaker:filling_redbottles') end
                     else
                         lib.notify({type = 'error', description = 'You do not have all the necessary elements to prepare.'})
                     end
@@ -325,7 +325,7 @@ RegisterNetEvent('winemaker:filling', function()
                                 dict = 'creatures@rottweiler@tricks@',
                                 clip = 'petting_franklin' 
                             },
-                        }) then TSE('winemaker:fillwhitegrape') end
+                        }) then TSE('winemaker:filling_whitebottles') end
                     else
                         lib.notify({type = 'error', description = 'You do not have all the necessary elements to prepare.'})
                     end
@@ -351,7 +351,7 @@ RegisterNetEvent('winemaker:filling', function()
                                 dict = 'creatures@rottweiler@tricks@',
                                 clip = 'petting_franklin' 
                             },
-                        }) then TSE('winemaker:winemaker:fillpinkgrape') end
+                        }) then TSE('winemaker:filling_pinkbottles') end
                     else
                         lib.notify({type = 'error', description = 'You do not have all the necessary elements to prepare.'})
                     end
@@ -366,8 +366,8 @@ end)
 
 RegisterNetEvent('winemaker:sale', function()
     lib.registerContext({
-        id = 'predaj_vina',
-        title = TranslateCap('predaj_vina'),
+        id = 'sale_of_wine',
+        title = TranslateCap('sale_of_wine'),
         options = {
             {
                 title = TranslateCap('predaj_cer_vina'),
