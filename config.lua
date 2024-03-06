@@ -31,13 +31,20 @@ Config.zone = {
 }
 
 -- Configuration des items
-Config.Items = {
-    Grapes = {Red = "red_grapes", White = "white_grapes", Pink = "pink_grapes"},
-    PressedGrapes = {Red = "red_grapes_pressed", White = "white_grapes_pressed", Pink = "pink_grapes_pressed"},
-    WineBottle = {Red = "red_wine_bottle", White = "white_wine_bottle", Pink = "pink_wine_bottle"},
-    EmptyBottle = "empty_wine_bottle",
-    EmptyCan = "empty_wine_can",
-}
+Config.redgrapes = "red_grapes"
+Config.whitegrapes = "white_grapes"
+Config.pinkgrapes = "pink_grapes"
+
+Config.redgrapepressed = "red_grapes_pressed"
+Config.whitegrapepressed = "white_grapes_pressed"
+Config.pinkgrapepressed = "pink_grapes_pressed"
+
+Config.redwinebottle = "red_wine_bottle"
+Config.whitewinebottle = "white_wine_bottle"
+Config.pinkwinebottle = "pink_wine_bottle"
+
+Config.emptybottle = "empty_bottle"
+Config.emptycan = "empty_wine_can"
 
 -- Fonction pour obtenir le nom complet d'un blip
 function GetBlipFullName(category)
