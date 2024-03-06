@@ -1,6 +1,6 @@
 fx_version 'adamant'
 game 'gta5'
-description 'Terius'
+description 'winemaker job'
 lua54 'yes'
 version '1.0.0'
 
