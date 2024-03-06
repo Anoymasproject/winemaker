@@ -19,110 +19,77 @@ AddEventHandler('esx:setJob', function(job)
 end)
 
 CreateThread(function()
-    for k, v in pairs(Config.Collectedzone) do
-        exports.ox_target:addBoxZone({
-        coords = v,
-        size = vec3(10, 2, 5),
-        rotation = 166,
-        debug = false,
-        options = {
-            {
-                name = 'collected',
-                event = "winemaker:collected",
-                icon = "fa-sharp fa-solid fa-wine-bottle",
-                label = TranslateCap('picking_grape_menu'),
-                distance = 2,
-                groups = Config.Job,
-                canInteract = function(entity)
-                    if IsEntityPlayingAnim(PlayerPedId(), 'mp_ped_interaction', 'handshake_guy_b', 3) then return false end
-                    return true
-                end,
-                onSelect = function()
-                    if lib.progressBar({
-                        duration = 3000,
-                        label = TranslateCap('picking_grape_prog'),
-                        useWhileDead = false,
-                        canCancel = true,
-                        disable = {
-                            move = true,
-                            car = true,
-                            combat = true,
-                            mouse = false
-                        },
-                        anim = {
-                            dict = 'mp_ped_interaction',
-                            clip = 'handshake_guy_b' 
-                        },
-                    }) then TSE('winemaker:grape') end
-                end
-            }
-        }
-    })
-    end
+    local ox_target = exports.ox_target
 
-    for k, v in pairs(Config.Pressingzone) do
-        exports.ox_target:addBoxZone({ 
-        coords = v,
-        size = vec3(2, 2, 2),
-        rotation = 166,
-        debug = false,
-        options = {
-            {
-                name = 'pressing',
-                event = "winemaker:pressing",
-                icon = "fa-sharp fa-solid fa-wine-bottle",
-                label = TranslateCap('pressing_grape_menu'),
-                distance = 2,
-                groups = Config.Job,
-                canInteract = function(entity)
-                    if IsEntityPlayingAnim(PlayerPedId(), 'anim@amb@clubhouse@tutorial@bkr_tut_ig3@', 'machinic_loop_mechandplayer', 3) then return false end
-                    return true
-                end,
-            }
-        }
-    })
-    end
+    for zoneType, zones in pairs(Config.zone) do 
+        for _, zone in ipairs(zones) do
+            local options = {}
+            if zoneType == 'Collected' then
+                options[#options+1] = {
+                    name = 'collected',
+                    icon = "fa-sharp fa-solid fa-wine-bottle",
+                    label = TranslateCap('picking_grape_menu'),
+                    distance = 2,
+                    groups = Config.Job,
+                    onSelect = function()
+                        if lib.progressBar({
+                            duration = 3000,
+                            label = TranslateCap('picking_grape_prog'),
+                            useWhileDead = false,
+                            canCancel = true,
+                            disable = {
+                                move = true,
+                                car = true,
+                                combat = true,
+                                mouse = false
+                            },
+                            anim = {
+                                dict = 'mp_ped_interaction',
+                                clip = 'handshake_guy_b' 
+                            },
+                        }) then TSE('winemaker:grape') end
+                    end
+                }
+            elseif zoneType == 'Pressing' then
+                options[#options+1] = {
+                    name = 'pressing',
+                    event = "winemaker:pressing",
+                    icon = "fa-sharp fa-solid fa-wine-bottle",
+                    label = TranslateCap('pressing_grape_menu'),
+                    distance = 2,
+                    groups = Config.Job,
+                }
+            elseif zoneType == 'Filling' then
+                options[#options+1] = {
+                    name = 'filling',
+                    event = "winemaker:filling",
+                    icon = "fa-sharp fa-solid fa-wine-bottle",
+                    label = TranslateCap('filling_bottle'),
+                    distance = 2,
+                    groups = Config.Job,
+                    canInteract = function(entity)
+                        if IsEntityPlayingAnim(PlayerPedId(), 'creatures@rottweiler@tricks@', 'petting_franklin', 3) then return false end
+                        return true
+                    end,
+                }
+            elseif  zoneType == 'Sale' then
+                options[#options+1] = {
+                    name = 'sale',
+                    event = "winemaker:sale",
+                    icon = "fa-sharp fa-solid fa-wine-bottle",
+                    label = TranslateCap('talk_to_barry'),
+                    distance = 2,
+                    groups = Config.Job,
+                }
+            end
 
-    for k, v in pairs(Config.Fillingzone) do
-        exports.ox_target:addBoxZone({ 
-        coords = v,
-        size = vec3(2, 2, 2),
-        rotation = 45,
-        debug = false,
-        options = {
-            {
-                name = 'filling',
-                event = "winemaker:filling",
-                icon = "fa-sharp fa-solid fa-wine-bottle",
-                label = TranslateCap('filling_bottles'),
-                distance = 2,
-                groups = Config.Job,
-                canInteract = function(entity)
-                    if IsEntityPlayingAnim(PlayerPedId(), 'creatures@rottweiler@tricks@', 'petting_franklin', 3) then return false end
-                    return true
-                end,
-            }
-        }
-    })
-    end
-
-    for k, v in pairs(Config.Salezone) do
-        exports.ox_target:addBoxZone({
-        coords = v,
-        size = vec3(2, 2, 2),
-        rotation = 45,
-        debug = false,
-        options = {
-            {
-                name = 'sale',
-                event = "winemaker:sale",
-                icon = "fa-sharp fa-solid fa-wine-bottle",
-                label = TranslateCap('sale_of_wine'),
-                distance = 2,
-                groups = Config.Job,
-            }
-        }
-    })
+            ox_target:addBoxZone({
+                coords = zone.coords,
+                size = zone.size,
+                rotation = zone.rotation,
+                options = options
+            })
+        end
     end
 
     lib.zones.box({

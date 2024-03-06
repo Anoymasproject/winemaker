@@ -9,7 +9,6 @@ shared_scripts {
 	'@es_extended/imports.lua',
     'config.lua',
 }
-
 server_scripts {
     '@oxmysql/lib/MySQL.lua',
     '@es_extended/locale.lua',
