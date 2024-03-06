@@ -56,9 +56,9 @@ end
 
 -- Table of wine filling events with their corresponding configurations
 local wineFillEvents = {
-    { eventName = 'winemaker:fillredgrape', pressedGrape = Config.redgrapepressed, emptyBottle = Config.emptybottle, wineBottle = Config.redwinebottle },
-    { eventName = 'winemaker:fillwhitegrape', pressedGrape = Config.whitegrapepressed, emptyBottle = Config.emptybottle, wineBottle = Config.whitewinebottle },
-    { eventName = 'winemaker:fillpinkgrape', pressedGrape = Config.pinkgrapepressed, emptyBottle = Config.emptybottle, wineBottle = Config.pinkwinebottle }
+    { eventName = 'winemaker:filling_redbottles', pressedGrape = Config.redgrapepressed, emptyBottle = Config.emptybottle, wineBottle = Config.redwinebottle },
+    { eventName = 'winemaker:filling_whitebottles', pressedGrape = Config.whitegrapepressed, emptyBottle = Config.emptybottle, wineBottle = Config.whitewinebottle },
+    { eventName = 'winemaker:filling_pinkbottles', pressedGrape = Config.pinkgrapepressed, emptyBottle = Config.emptybottle, wineBottle = Config.pinkwinebottle }
 }
 
 -- Recording wine filling events
