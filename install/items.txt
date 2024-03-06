@@ -1,0 +1,105 @@
+['red_grapes'] = {
+		label = 'Red grapes',
+		weight = 10,
+		stack = true,
+		close = true,
+		description = 'Can be tasted and used for the preparation of red wine.',
+		client = {
+			status = { thirst = 50000, hunger = 50000 },
+			anim = 'eating',
+			prop = 'burger',
+			usetime = 2500,
+		},
+	},
+	
+	['white_grapes'] = {
+		label = 'White grapes',
+		weight = 10,
+		stack = true,
+		close = true,
+		description = 'Can be tasted and used for the preparation of white wine.',
+		client = {
+			status = { thirst = 50000, hunger = 50000 },
+			anim = 'eating',
+			prop = 'burger',
+			usetime = 2500,
+		},
+	},
+
+	['pink_grapes'] = {
+		label = 'Raisin rose',
+		weight = 10,
+		stack = true,
+		close = true,
+		description = 'Can be tasted and used to prepare rosé wine.',
+		client = {
+			status = { thirst = 50000, hunger = 50000 },
+			anim = 'eating',
+			prop = 'burger',
+			usetime = 2500,
+		},
+	},
+
+	['red_grapes_pressed'] = {
+		label = 'pressed red grapes',
+		weight = 5,
+		stack = true,
+		close = true,
+		description = 'This is used to prepare red wine.'
+	},
+
+	['white_grapes_pressed'] = {
+		label = 'pressed white grapes',
+		weight = 5,
+		stack = true,
+		close = true,
+		description = 'This is used to prepare white wine.'
+	},
+
+	['pink_grapes_pressed'] = {
+		label = 'pressed pink grapes',
+		weight = 5,
+		stack = true,
+		close = true,
+		description = 'This is used to prepare rosé wine.'
+	},
+
+	['red_wine_bottle'] = {
+		label = 'Red wine',
+		weight = 150,
+		stack = true,
+		close = true,
+		description = nil
+	},
+
+	['white_wine_bottle'] = {
+		label = 'White wine',
+		weight = 150,
+		stack = true,
+		close = true,
+		description = nil
+	},
+
+	['pink_wine_bottle'] = {
+		label = 'Pink wine',
+		weight = 150,
+		stack = true,
+		close = true,
+		description = nil
+	},
+
+	['empty_wine_bottle'] = {
+		label = 'Empty wine bottle',
+		weight = 20,
+		stack = true,
+		close = true,
+		description = 'This is used for filling red, white and rosé wine.'
+	},
+
+	['empty_wine_can'] = {
+	    label = 'Empty wine can',
+	    weight = 50,
+	    stack = true,
+	    close = true,
+	    description = 'This allows you to preserve juice from pressed red, white and rosé grapes.'
+    },
