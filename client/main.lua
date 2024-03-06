@@ -94,7 +94,7 @@ CreateThread(function()
                 name = 'filling',
                 event = "winemaker:filling",
                 icon = "fa-sharp fa-solid fa-wine-bottle",
-                label = TranslateCap('filling_bottle'),
+                label = TranslateCap('filling_bottles'),
                 distance = 2,
                 groups = Config.Job,
                 canInteract = function(entity)
@@ -117,7 +117,7 @@ CreateThread(function()
                 name = 'sale',
                 event = "winemaker:sale",
                 icon = "fa-sharp fa-solid fa-wine-bottle",
-                label = TranslateCap('talk_to_barry'),
+                label = TranslateCap('sale_of_wine'),
                 distance = 2,
                 groups = Config.Job,
             }
@@ -127,7 +127,7 @@ CreateThread(function()
 
     lib.zones.box({
     	name = "Actionwinemaker",
-    	coords = vec3(-1898.0, 2069.0, 141.0),
+    	coords = vec3(-1911.3553, 2074.4978, 140.3960),
     	size = vec3(3, 4.0, 2),
     	rotation = 50.0,
         onEnter = function ()
@@ -286,7 +286,7 @@ RegisterNetEvent('winemaker:filling', function()
                     if exports.ox_inventory:Search('count', Config.redgrapepressed) >= 1 and exports.ox_inventory:Search('count', Config.emptybottle) > 14  then
                         if lib.progressBar({
                             duration = 30000,
-                            label = TranslateCap('plnis_flasu'),
+                            label = TranslateCap('fill_the_bottle'),
                             useWhileDead = false,
                             canCancel = true,
                             disable = {
@@ -312,7 +312,7 @@ RegisterNetEvent('winemaker:filling', function()
                     if exports.ox_inventory:Search('count', Config.whitegrapepressed) >= 1 and exports.ox_inventory:Search('count', Config.emptybottle) > 14  then
                         if lib.progressBar({
                             duration = 30000,
-                            label = TranslateCap('plnis_flasu'),
+                            label = TranslateCap('fill_the_bottle'),
                             useWhileDead = false,
                             canCancel = true,
                             disable = {
@@ -338,7 +338,7 @@ RegisterNetEvent('winemaker:filling', function()
                     if exports.ox_inventory:Search('count', Config.pinkgrapepressed) >= 1 and exports.ox_inventory:Search('count', Config.emptybottle) > 14  then
                         if lib.progressBar({
                             duration = 30000,
-                            label = TranslateCap('plnis_flasu'),
+                            label = TranslateCap('fill_the_bottle'),
                             useWhileDead = false,
                             canCancel = true,
                             disable = {
@@ -359,7 +359,7 @@ RegisterNetEvent('winemaker:filling', function()
             },
         },
     })
-    lib.showContext('plnenie_flias')
+    lib.showContext('filling_bottles')
 end)
 
 
@@ -370,8 +370,8 @@ RegisterNetEvent('winemaker:sale', function()
         title = TranslateCap('sale_of_wine'),
         options = {
             {
-                title = TranslateCap('predaj_cer_vina'),
-                description = TranslateCap('predaj_cer_vina_need'),
+                title = TranslateCap('sell_red_wine'),
+                description = TranslateCap('sell_red_wine_need'),
                 onSelect = function()
                     local max = exports.ox_inventory:Search('count', Config.redwinebottle)
                     local quantity = lib.inputDialog('Quantiter', {
@@ -380,7 +380,7 @@ RegisterNetEvent('winemaker:sale', function()
                       if quantity[1] then
                         if lib.progressBar({
                             duration = 10000,
-                            label = TranslateCap('predavas_cer_vino'),
+                            label = TranslateCap('give_red_wine'),
                             useWhileDead = false,
                             canCancel = true,
                             anim = {
@@ -400,8 +400,8 @@ RegisterNetEvent('winemaker:sale', function()
                 end,
             },
             {
-                title = TranslateCap('predaj_bie_vina'),
-                description = TranslateCap('predaj_bie_vina_need'),
+                title = TranslateCap('sell_white_wine'),
+                description = TranslateCap('sell_white_wine_need'),
                 onSelect = function()
                     local max = exports.ox_inventory:Search('count', Config.whitewinebottle)
                     local quantity = lib.inputDialog('Quantiter', {
@@ -410,7 +410,7 @@ RegisterNetEvent('winemaker:sale', function()
                       if quantity[1] then
                         if lib.progressBar({
                             duration = 10000,
-                            label = TranslateCap('predavas_cer_vino'),
+                            label = TranslateCap('give_red_wine'),
                             useWhileDead = false,
                             canCancel = true,
                             anim = {
@@ -430,8 +430,8 @@ RegisterNetEvent('winemaker:sale', function()
                 end,
             },
             {
-                title = TranslateCap('predaj_ruz_vina'),
-                description = TranslateCap('predaj_ruz_vina_need'),
+                title = TranslateCap('sell_pink_wine'),
+                description = TranslateCap('sell_pink_wine_need'),
                 onSelect = function()
                     local max = exports.ox_inventory:Search('count', Config.pinkwinebottle)
                     local quantity = lib.inputDialog('Quantiter', {
@@ -440,7 +440,7 @@ RegisterNetEvent('winemaker:sale', function()
                       if quantity[1] then
                         if lib.progressBar({
                             duration = 10000,
-                            label = TranslateCap('predavas_cer_vino'),
+                            label = TranslateCap('give_red_wine'),
                             useWhileDead = false,
                             canCancel = true,
                             anim = {
@@ -519,7 +519,7 @@ RegisterNetEvent('winemaker:sale', function()
             },
         },
     })
-    lib.showContext('predaj_vina')
+    lib.showContext('sale_of_wine')
 end)
 
 function blips()
