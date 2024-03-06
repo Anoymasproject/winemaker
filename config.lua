@@ -20,16 +20,13 @@ Config.zone = {
         {coords = vec3(-1879.9648, 2109.2786, 136.1772), size = vec3(10, 2, 5), rotation = 166}
     },
     Pressing = {
-        {coords =  vec3(-1932.8898, 2055.5222, 140.8128), size = vec3(2, 2, 2), rotation = 166},
-        {coords =  vec3(-1933.3802, 2052.7515, 140.8128), size = vec3(2, 2, 2), rotation = 166},
-        {coords =  vec3(-1932.1511, 2058.2229, 140.8128), size = vec3(2, 2, 2), rotation = 166},
+        {coords =  vec3(-1928.8124, 2059.8079, 140.8171), size = vec3(2, 2, 2), rotation = 166},
     },
     Filling = {
-        {coords =  vec3(-1868.5596, 2055.9106, 141.2026), size = vec3(2, 2, 2), rotation = 45},
-        {coords =  vec3(-1868.7825, 2058.7241, 141.2026), size = vec3(2, 2, 2), rotation = 45},
+        {coords =  vec3(-1885.9963, 2074.3855, 141.0079), size = vec3(2, 2, 2), rotation = 45},
     },
     Sale= {
-        {coords =  vec3(-1868.5596, 2055.9106, 141.2026), size = vec3(2, 2, 2), rotation = 45}
+        {coords =  vec3(-1887.8644, 2050.7561, 140.9962), size = vec3(2, 2, 2), rotation = 45}
     },
 }
 
