@@ -10,7 +10,7 @@ Ox_lib
 Ox_target
 ESX Basics
 
-in Progresse
+in Progresse :
 
 Garage Creation:
 
@@ -47,3 +47,20 @@ Thorough Testing:
 
 Conduct thorough testing to ensure the proper functioning of QBCore, garages, the wardrobe, and the bounty system.
 Seek feedback from players for potential adjustments.
+
+
+
+We are excited to share that a significant code optimization phase is underway to enhance the performance of our Winemaker script. Our development team is committed to ensuring a smoother and more responsive user experience.
+
+Over the next few weeks, our focus will be on identifying and improving critical sections of the Winemaker script's source code. The primary goal is to optimize performance, reduce processing times, and ensure more efficient use of resources.
+
+Key areas of attention include loop optimization, variable management, and enhancing the efficiency of core functions. These adjustments aim to alleviate the script's load, minimize response times, and provide a more enjoyable user experience.
+
+During this period, you may notice frequent script updates as we implement continuous improvements. Each modification is rigorously tested to maintain script stability and avoid any major disruptions.
+
+We appreciate your understanding and support during this optimization phase. We are confident that these efforts will make Winemaker more robust and reliable for all users.
+
+Stay tuned for regular updates on our progress, and feel free to share your feedback with us.
+
+Best regards,
+Anonymas Script Development Team.
