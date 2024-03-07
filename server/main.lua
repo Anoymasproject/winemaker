@@ -36,24 +36,33 @@ AddEventHandler('winemaker:grape', function()
 end)
 
 -- Table of grape pressing events with their corresponding configurations
-local grapePressEvents = {
-    { eventName = 'winemaker:redgrape', canType = Config.emptycan, requiredCan = 1, grapeType= Config.redgrapes, requiredAmount = 30,  pressedGrapeType = Config.redgrapepressed,   addedAmount = 1},
-    { eventName = 'winemaker:whitegrape', canType = Config.emptycan, requiredCan = 1, grapeType= Config.whitegrapes, requiredAmount = 30,  pressedGrapeType = Config.whitegrapepressed, addedAmount = 1},
-    { eventName = 'winemaker:pinkgrape', canType = Config.emptycan, requiredCan = 1, grapeType= Config.pinkgrapes, requiredAmount = 30,  pressedGrapeType = Config.pinkgrapepressed,  addedAmount = 1}
+local grapeTypes = {
+    { name = 'redgrape', grapeType = Config.redgrapes, pressedGrapeType = Config.redgrapepressed },
+    { name = 'whitegrape', grapeType = Config.whitegrapes, pressedGrapeType = Config.whitegrapepressed },
+    { name = 'pinkgrape', grapeType = Config.pinkgrapes, pressedGrapeType = Config.pinkgrapepressed }
 }
 
--- Recording grape pressing events
-for _, event in ipairs(grapePressEvents) do
-    RegisterNetEvent(event.eventName)
-    AddEventHandler(event.eventName, function()
+local grapePressEvents = {}
+
+for _, grape in ipairs(grapeTypes) do
+    local eventName = 'winemaker:' .. grape.name
+    local event = {
+        eventName = eventName,
+        grapeType = grape.grapeType,
+        requiredAmount = 30,
+        pressedGrapeType = grape.pressedGrapeType,
+        addedAmount = 1
+    }
+    table.insert(grapePressEvents, event)
+
+    RegisterNetEvent(eventName)
+    AddEventHandler(eventName, function()
         local _source = source
         local xPlayer = ESX.GetPlayerFromId(_source)
+
         if xPlayer and xPlayer.job and xPlayer.job.name == "winemaker" then
-            
-            xPlayer.removeInventoryItem(event.canType, event.requiredCan)
             xPlayer.removeInventoryItem(event.grapeType, event.requiredAmount)
             xPlayer.addInventoryItem(event.pressedGrapeType, event.addedAmount)
-            
         end
     end)
 end
@@ -61,23 +70,25 @@ end
 
 -- Table of wine filling events with their corresponding configurations
 local wineFillEvents = {
-    { eventName = 'winemaker:filling_redbottles', pressedGrape = Config.redgrapepressed, emptyBottle = Config.emptybottle, wineBottle = Config.redwinebottle },
-    { eventName = 'winemaker:filling_whitebottles', pressedGrape = Config.whitegrapepressed, emptyBottle = Config.emptybottle, wineBottle = Config.whitewinebottle },
-    { eventName = 'winemaker:filling_pinkbottles', pressedGrape = Config.pinkgrapepressed, emptyBottle = Config.emptybottle, wineBottle = Config.pinkwinebottle }
+    { name = 'red', pressedGrape = Config.redgrapepressed, emptyBottle = Config.emptybottle, wineBottle = Config.redwinebottle },
+    { name = 'white', pressedGrape = Config.whitegrapepressed, emptyBottle = Config.emptybottle, wineBottle = Config.whitewinebottle },
+    { name = 'pink', pressedGrape = Config.pinkgrapepressed, emptyBottle = Config.emptybottle, wineBottle = Config.pinkwinebottle }
 }
 
 -- Recording wine filling events
 for _, event in ipairs(wineFillEvents) do
-    RegisterNetEvent(event.eventName)
-    AddEventHandler(event.eventName, function()
+    local eventName = 'winemaker:filling_' .. event.name .. 'bottles'
+    RegisterNetEvent(eventName)
+
+    AddEventHandler(eventName, function()
         local _source = source
         local xPlayer = ESX.GetPlayerFromId(_source)
-        if xPlayer and xPlayer.job and xPlayer.job.name == "winemaker" then
-            
-            xPlayer.removeInventoryItem(event.pressedGrape, 1)
-            xPlayer.removeInventoryItem(event.emptyBottle, 15)
-            xPlayer.addInventoryItem(event.wineBottle, 15)
 
+        if xPlayer and xPlayer.job and xPlayer.job.name == "winemaker" then
+            local requiredAmount = 15
+            xPlayer.removeInventoryItem(event.pressedGrape, 1)
+            xPlayer.removeInventoryItem(event.emptyBottle, requiredAmount)
+            xPlayer.addInventoryItem(event.wineBottle, requiredAmount)
         end
     end)
 end
