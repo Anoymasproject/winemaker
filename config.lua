@@ -44,7 +44,6 @@ Config.whitewinebottle = "white_wine_bottle"
 Config.pinkwinebottle = "pink_wine_bottle"
 
 Config.emptybottle = "empty_wine_bottle"
-Config.emptycan = "empty_wine_can"
 
 -- Fonction pour obtenir le nom complet d'un blip
 function GetBlipFullName(category)

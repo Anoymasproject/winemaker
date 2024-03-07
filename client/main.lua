@@ -458,36 +458,6 @@ RegisterNetEvent('winemaker:sale', function()
                     end
                 end,
             },
-            {
-                title = TranslateCap('get_empty_can'),
-                description = TranslateCap('get_empty_can_need'),
-                onSelect = function()
-                    local quantity = lib.inputDialog('Quantiter', {
-                        {type = 'number', label = 'How much?', icon = 'hashtag', min = 1},
-                      })
-                      if quantity[1] then
-                        if lib.progressBar({
-                            duration = 10000,
-                            label = 'You will receive the carafes.',
-                            useWhileDead = false,
-                            canCancel = true,
-                            anim = {
-                                scenario = "WORLD_HUMAN_CLIPBOARD"
-                            },
-                            disable = {
-                                move = true,
-                                car = true,
-                                combat = true,
-                                mouse = false
-                            },
-    
-                        }) then
-                            local wannabebanned = quantity[1]
-                            TriggerServerEvent('winemaker:GetEmptyCan', wannabebanned)
-                        end
-                    end
-                end,
-            },
         },
     })
     lib.showContext('sale_of_wine')
