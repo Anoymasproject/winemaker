@@ -22,14 +22,16 @@ AddEventHandler('winemaker:grape', function()
     if not xPlayer then
         return
     end
+    if xPlayer and xPlayer.job and xPlayer.job.name == "winemaker" then
 
-    local randomItem = Items[math.random(#Items)]
-    local randomNumber = math.random(5, 10)
+        local randomItem = Items[math.random(#Items)]
+        local randomNumber = math.random(5, 10)
 
-    if xPlayer.canCarryItem(randomItem, randomNumber) then
-        xPlayer.addInventoryItem(randomItem, randomNumber)
-    else
-        TriggerClientEvent('ox_lib:notify', xPlayer.source, { type = 'error', description = "Inventory is full." })
+        if xPlayer.canCarryItem(randomItem, randomNumber) then
+            xPlayer.addInventoryItem(randomItem, randomNumber)
+        else
+            TriggerClientEvent('ox_lib:notify', xPlayer.source, { type = 'error', description = "Inventory is full." })
+        end
     end
 end)
 
@@ -46,10 +48,13 @@ for _, event in ipairs(grapePressEvents) do
     AddEventHandler(event.eventName, function()
         local _source = source
         local xPlayer = ESX.GetPlayerFromId(_source)
-       
-        xPlayer.removeInventoryItem(event.canType, event.requiredCan)
-        xPlayer.removeInventoryItem(event.grapeType, event.requiredAmount)
-        xPlayer.addInventoryItem(event.pressedGrapeType, event.addedAmount)
+        if xPlayer and xPlayer.job and xPlayer.job.name == "winemaker" then
+            
+            xPlayer.removeInventoryItem(event.canType, event.requiredCan)
+            xPlayer.removeInventoryItem(event.grapeType, event.requiredAmount)
+            xPlayer.addInventoryItem(event.pressedGrapeType, event.addedAmount)
+            
+        end
     end)
 end
 
@@ -67,9 +72,13 @@ for _, event in ipairs(wineFillEvents) do
     AddEventHandler(event.eventName, function()
         local _source = source
         local xPlayer = ESX.GetPlayerFromId(_source)
-        xPlayer.removeInventoryItem(event.pressedGrape, 1)
-        xPlayer.removeInventoryItem(event.emptyBottle, 15)
-        xPlayer.addInventoryItem(event.wineBottle, 15)
+        if xPlayer and xPlayer.job and xPlayer.job.name == "winemaker" then
+            
+            xPlayer.removeInventoryItem(event.pressedGrape, 1)
+            xPlayer.removeInventoryItem(event.emptyBottle, 15)
+            xPlayer.addInventoryItem(event.wineBottle, 15)
+
+        end
     end)
 end
 
