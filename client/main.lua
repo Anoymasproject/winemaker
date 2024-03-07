@@ -1,9 +1,8 @@
+ESX = exports["es_extended"]:getSharedObject()
+
 local TSE = TriggerServerEvent
 local PlayerData, Blips = {}, {}
 local WinemakerBlips = {}
-
-ESX = nil
-ESX = exports["es_extended"]:getSharedObject()
 
 RegisterNetEvent('esx:playerLoaded')
 AddEventHandler('esx:playerLoaded', function(xPlayer)
@@ -361,7 +360,8 @@ RegisterNetEvent('winemaker:sale', function()
                             },
     
                             }) then
-                            TriggerServerEvent('winemaker:red:sale', quantity[1])
+                            local wannabebanned = quantity[1]
+                            TriggerServerEvent('winemaker:red:sale', wannabebanned)
                         end
                     end
                 end,
@@ -391,7 +391,8 @@ RegisterNetEvent('winemaker:sale', function()
                             },
     
                         }) then
-                            TriggerServerEvent('winemaker:white:sale', quantity[1])
+                            local wannabebanned = quantity[1]
+                            TriggerServerEvent('winemaker:white:sale', wannabebanned)
                         end
                     end
                 end,
@@ -421,7 +422,8 @@ RegisterNetEvent('winemaker:sale', function()
                             },
     
                         }) then
-                            TriggerServerEvent('winemaker:pink:sale', quantity[1])
+                            local wannabebanned = quantity[1]
+                            TriggerServerEvent('winemaker:pink:sale', wannabebanned)
                         end
                     end
                 end,
@@ -450,7 +452,8 @@ RegisterNetEvent('winemaker:sale', function()
                             },
     
                         }) then
-                            TriggerServerEvent('winemaker:GetEmptyBottle', quantity[1])
+                            local wannabebanned = quantity[1]
+                            TriggerServerEvent('winemaker:GetEmptyBottle', wannabebanned)
                         end
                     end
                 end,
@@ -479,7 +482,8 @@ RegisterNetEvent('winemaker:sale', function()
                             },
     
                         }) then
-                            TriggerServerEvent('winemaker:GetEmptyCan', quantity[1])
+                            local wannabebanned = quantity[1]
+                            TriggerServerEvent('winemaker:GetEmptyCan', wannabebanned)
                         end
                     end
                 end,
